@@ -95,3 +95,12 @@ const jeopardyCategories = [
     ],
   },
 ];
+
+// Create column by categories
+
+function addCategory(category) {
+  const column = document.createElement('div');
+  column.classList.add('genre-column');
+}
+
+jeopardyCategories.forEach((category) => addCategory(category));
