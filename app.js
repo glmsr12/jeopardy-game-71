@@ -145,6 +145,8 @@ jeopardyCategories.forEach((category) => addCategory(category));
 
 function flipCard() {
   this.innerHTML = '';
+  this.style.fontSize = '1.1rem';
+  this.style.lineHeight = '30px';
 
   const textDisplay = document.createElement('div');
   textDisplay.classList.add('card-text');
