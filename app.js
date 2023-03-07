@@ -42,7 +42,7 @@ const jeopardyCategories = [
       },
       {
         question: 'Where is Colosseum?',
-        answers: ['Rome, Italy'],
+        answers: ['Rome, Milan, Italy'],
         correct: 'Italy',
         level: 'hard',
       },
