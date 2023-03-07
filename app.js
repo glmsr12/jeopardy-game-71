@@ -173,10 +173,13 @@ function flipCard() {
 }
 
 function getResult() {
+  const allCards = Array.from(document.querySelectorAll('.card'));
+  allCards.forEach((card) => card.addEventListener('click', flipCard));
+
   const cardButton = this.parentElement;
   if (cardButton.getAttribute('data-correct') == this.innerHTML) {
     Score = Score + parseInt(cardButton.getAttribute('data-value'));
-    scoreDisplay.innerHTML = Score;
+    score.innerHTML = Score;
     cardButton.classList.add('correct-answer');
 
     //if the answer is correct show the value
@@ -184,6 +187,17 @@ function getResult() {
       while (cardButton.firstChild) {
         cardButton.removeChild(cardButton.lastChild);
       }
-    });
+      cardButton.innerHTML = cardButton.getAttribute('data-value');
+    }, 100);
+  } else {
+    cardButton.classList.add('wrong-answer');
+    setTimeout(() => {
+      while (cardButton.firstChild) {
+        cardButton.removeChild(cardButton.lastChild);
+      }
+      cardButton.innerHTML = 0;
+    }, 100);
   }
+
+  cardButton.removeEventListener('click', flipCard);
 }
