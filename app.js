@@ -101,6 +101,8 @@ const jeopardyCategories = [
   },
 ];
 
+let Score = 0;
+
 // Create column by categories
 
 function addCategory(category) {
@@ -145,7 +147,7 @@ jeopardyCategories.forEach((category) => addCategory(category));
 
 function flipCard() {
   this.innerHTML = '';
-  this.style.fontSize = '1.1rem';
+  this.style.fontSize = '1rem';
   this.style.lineHeight = '30px';
 
   const textDisplay = document.createElement('div');
@@ -158,5 +160,30 @@ function flipCard() {
   secondButton.classList.add('second-button');
   firstButton.innerHTML = this.getAttribute('data-answer-1');
   secondButton.innerHTML = this.getAttribute('data-answer-2');
+
+  //get the result for the selected buttons
+  firstButton.addEventListener('click', getResult);
+  secondButton.addEventListener('click', getResult);
+
   this.append(textDisplay, firstButton, secondButton);
+
+  // flip only the card selected and remove event listener from rest of the cards
+  const allCards = Array.from(document.querySelectorAll('.card'));
+  allCards.forEach((card) => card.removeEventListener('click', flipCard));
+}
+
+function getResult() {
+  const cardButton = this.parentElement;
+  if (cardButton.getAttribute('data-correct') == this.innerHTML) {
+    Score = Score + parseInt(cardButton.getAttribute('data-value'));
+    scoreDisplay.innerHTML = Score;
+    cardButton.classList.add('correct-answer');
+
+    //if the answer is correct show the value
+    setTimeout(() => {
+      while (cardButton.firstChild) {
+        cardButton.removeChild(cardButton.lastChild);
+      }
+    });
+  }
 }
