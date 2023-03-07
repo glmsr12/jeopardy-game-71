@@ -108,6 +108,24 @@ function addCategory(category) {
 
   column.appendChild(genreTitle);
   game.append(column);
+
+  //looping through questions
+  category.questions.forEach((question) => {
+    const card = document.createElement('div');
+    card.classList.add('card');
+    column.append(card);
+
+    //create card by question levels
+    if (question.level === 'easy') {
+      card.innerHTML = 100;
+    }
+    if (question.level === 'medium') {
+      card.innerHTML = 200;
+    }
+    if (question.level === 'hard') {
+      card.innerHTML = 300;
+    }
+  });
 }
 
 jeopardyCategories.forEach((category) => addCategory(category));
