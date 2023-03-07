@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Roboto:wght@300;400;500&display=swap');
 body {
   margin: 0;
   padding: 0;
@@ -9,5 +8,25 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Antonio', sans-serif;
+}
+
+#game {
+  display: flex;
+  background-color: rgb(40, 37, 37);
+}
+
+.card {
+  width: 160px;
+  height: 120px;
+  background-color: rgb(26, 26, 255);
+  border-left: solid rgb(19, 19, 160) 10px;
+  border-right: solid rgb(19, 19, 160) 10px;
+  border-top: solid rgb(19, 19, 160) 10px;
+  border-bottom: solid rgb(19, 19, 160) 10px;
+  text-align: center;
+  font-size: 3rem;
+  margin: 10px;
+  padding: 20px;
+  line-height: 120px;
 }
